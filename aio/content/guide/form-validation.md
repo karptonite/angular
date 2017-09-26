@@ -139,6 +139,10 @@ null if the control value is valid _or_ a validation error object.
 The validation error object typically has a property whose name is the validation key, `'forbiddenName'`,
 and whose value is an arbitrary dictionary of values that you could insert into an error message, `{name}`.
 
+Custom Async validators are similar to Sync validators, but they must return a Promise or Observable that later
+emits null or a validation error object. In the case of an Observable, the Observable must complete, and the
+form will use the last value emitted for validation.
+
 ### Adding to reactive forms
 
 In reactive forms, custom validators are fairly simple to add. All you have to do is pass the function directly 
